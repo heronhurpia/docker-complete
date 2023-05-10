@@ -16,5 +16,4 @@ WORKDIR /src
 # Expose the port your app will run on (e.g. 3000)
 EXPOSE 5173
 
-# Run the development command
-#CMD ["npm", "run", "dev"]
+

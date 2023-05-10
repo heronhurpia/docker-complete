@@ -15,6 +15,7 @@ services:
       - npm 
       - php
       - mysql
+      - pgsql
   php:
     build:
       context: .
@@ -42,7 +43,6 @@ services:
       - ./src:/var/www/html
     entrypoint: ['php', '/var/www/html/artisan']
   npm:
-    #image: node:14
     build: 
       context: ./dockerfiles
       dockerfile: npm.dockerfile
@@ -52,6 +52,17 @@ services:
     entrypoint: ['npm','run','dev']
     volumes:
       - ./src:/var/www/html
+  pgsql:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: homestead
+      POSTGRES_USER: homestead
+      POSTGRES_PASSWORD: secret
+    ports:
+    - '5433:5432'
+    volumes:
+      - pgsql-datavolume:/var/lib/postgresql/data 
 volumes:
   mysql-datavolume:
+  pgsql-datavolume:
   

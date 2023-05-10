@@ -10,7 +10,7 @@ docker-compose run --rm composer require laravel/ui
 docker-compose run --rm artisan ui bootstrap
 docker-compose run --rm artisan ui bootstrap --auth
 docker-compose run --rm npm install
-docker-compose run --rm npm run dev
+docker-compose run --rm -p 5173:5173 npm run dev
 
 Para parar de executar:
 docker-compose down
